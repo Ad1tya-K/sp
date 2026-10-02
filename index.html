@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lab Manual of Physics – Class XII | SP Publication</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
+
+:root {
+  --teal:       #0c4a52;
+  --teal-mid:   #0f606b;
+  --teal-light: #e6f4f5;
+  --yellow:     #f5c800;
+  --yellow-dim: #fef7cc;
+  --white:      #ffffff;
+  --ink:        #111827;
+  --muted:      #4b5563;
+  --border:     #d1e8ea;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f0f7f8;
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.hero {
+  background: linear-gradient(160deg, var(--teal) 0%, #062e36 100%);
+  padding: 0 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 40%, rgba(245,200,0,.10) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 0;
+  position: relative; z-index: 1;
+}
+
+.publisher-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--yellow);
+  color: var(--teal);
+  font-weight: 900;
+  font-size: .7rem;
+  letter-spacing: .1em;
+  padding: .3rem .9rem .3rem .5rem;
+  border-radius: 3px;
+  margin-bottom: 1.5rem;
+}
+.publisher-badge .sp {
+  background: var(--teal);
+  color: var(--yellow);
+  font-size: .75rem;
+  font-weight: 900;
+  padding: .2rem .45rem;
+  border-radius: 2px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: flex-end;
+}
+
+.hero-text .eyebrow {
+  color: var(--yellow);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  margin-bottom: .3rem;
+}
+.hero-text h1 {
+  color: var(--white);
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  font-weight: 900;
+  line-height: .92;
+  letter-spacing: -.03em;
+}
+.hero-text .subtitle {
+  color: rgba(255,255,255,.65);
+  font-size: .9rem;
+  margin-top: .4rem;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+}
+.class-chip {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--teal);
+  font-weight: 900;
+  font-size: .85rem;
+  padding: .3rem 1rem;
+  border-radius: 20px;
+  margin-top: .9rem;
+}
+
+/* Floating formulas */
+.formulas {
+  text-align: right;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+}
+.formulas .tag {
+  color: rgba(255,255,255,.35);
+  font-size: .65rem;
+  letter-spacing: .05em;
+  margin-bottom: .4rem;
+  font-style: italic;
+}
+.formulas .tag em { color: var(--yellow); font-style: normal; }
+.formula {
+  color: rgba(255,255,255,.8);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+.formula.lg { font-size: 1.7rem; }
+.formula sub { font-size: .7em; }
+.atom {
+  color: rgba(255,255,255,.25);
+  font-size: 2rem;
+  margin-top: .3rem;
+}
+
+.wave-sep {
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* Description */
+.intro {
+  background: var(--white);
+  border-left: 3px solid var(--teal);
+  padding: 1.1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+
+/* Section label */
+.section-label {
+  font-size: .65rem;
+  font-weight: 700;
+  color: var(--teal);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: .85rem;
+}
+
+/* Features grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: .7rem;
+  margin-bottom: 2rem;
+}
+.feat {
+  background: var(--white);
+  border-radius: 8px;
+  padding: .9rem 1rem;
+  display: flex;
+  gap: .75rem;
+  align-items: flex-start;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  border: 1px solid var(--border);
+}
+.feat-icon {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  background: var(--teal);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.feat-icon svg { width: 12px; height: 12px; stroke: var(--yellow); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.feat p { font-size: .88rem; color: var(--ink); line-height: 1.45; }
+
+/* Price + meta strip */
+.meta-strip {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.price-card {
+  background: var(--teal);
+  border-radius: 10px;
+  padding: 1.1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  flex: 0 0 auto;
+}
+.price-card .lbl { color: rgba(255,255,255,.55); font-size: .7rem; letter-spacing: .05em; }
+.price-card .amt { color: var(--yellow); font-size: 2.2rem; font-weight: 900; line-height: 1; }
+.meta-pills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5rem;
+}
+.pill {
+  display: inline-flex;
+  gap: .5rem;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: .35rem .9rem;
+  font-size: .8rem;
+  color: var(--muted);
+}
+.pill strong { color: var(--ink); font-weight: 600; }
+
+/* Tagline */
+.tagline {
+  text-align: center;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--teal);
+}
+
+/* QR section */
+.qr-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  border: 1px solid var(--border);
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.qr-card img {
+  width: 120px; height: 120px;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.qr-info h3 { font-size: .9rem; font-weight: 700; color: var(--teal); margin-bottom: .4rem; }
+.qr-info p { font-size: .8rem; color: var(--muted); line-height: 1.55; }
+.qr-info .note {
+  display: inline-block;
+  margin-top: .75rem;
+  background: var(--yellow-dim);
+  border: 1px solid var(--yellow);
+  border-radius: 4px;
+  padding: .3rem .7rem;
+  font-size: .73rem;
+  color: #7a6000;
+}
+
+/* Footer */
+footer {
+  background: var(--teal);
+  text-align: center;
+  padding: 1.75rem 1rem;
+  color: rgba(255,255,255,.55);
+  font-size: .82rem;
+}
+footer .brand { color: var(--yellow); font-weight: 800; font-size: 1rem; display: block; margin-bottom: .25rem; }
+
+/* Responsive */
+@media (max-width: 520px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .formulas { display: none; }
+  .feat p { font-size: .82rem; }
+  .qr-card { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="publisher-badge">
+      <span class="sp">SP</span>
+      PUBLICATION
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Lab Manual Of</p>
+        <h1>PHYSICS</h1>
+        <p class="subtitle">with Practical Notebook</p>
+        <span class="class-chip">Class XII</span>
+      </div>
+
+      <div class="formulas">
+        <div class="tag">Learn · Explore · <em>Excel</em></div>
+        <div class="formula lg">V = IR</div>
+        <div class="formula lg">E = mc²</div>
+        <div class="formula">λ = h/p</div>
+        <div class="atom">⚛</div>
+      </div>
+    </div>
+
+    <svg class="wave-sep" viewBox="0 0 760 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,24 C190,48 570,0 760,24 L760,48 L0,48 Z" fill="#f0f7f8"/>
+    </svg>
+  </div>
+</header>
+
+<main>
+
+  <p class="intro">
+    This Lab Manual is designed to help Class XII students understand and perform physics
+    experiments with clarity and confidence. It provides a well-structured practical notebook
+    format, complete with aim, apparatus, procedure, observations and results. Written in simple
+    language, it follows the latest CBSE syllabus and examination pattern — an essential
+    companion for school and board examinations.
+  </p>
+
+  <p class="section-label">Key Features</p>
+  <div class="features">
+    <div class="feat">
+      <div class="feat-icon"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,4"/></svg></div>
+      <p>Well-structured and easy-to-follow practical format</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,4"/></svg></div>
+      <p>Clear aim, apparatus, procedure, observations and result</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,4"/></svg></div>
+      <p>Important formulas and theory at a glance</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,4"/></svg></div>
+      <p>As per latest syllabus and examination pattern</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,4"/></svg></div>
+      <p>Useful for school, board and competitive examinations</p>
+    </div>
+  </div>
+
+  <div class="meta-strip">
+    <div class="price-card">
+      <span class="lbl">Cover Price</span>
+      <span class="amt">₹ 386</span>
+    </div>
+    <div class="meta-pills">
+      <div class="pill">📚 <strong>Subject:</strong> Physics</div>
+      <div class="pill">🎓 <strong>Level:</strong> Class XII</div>
+      <div class="pill">🏫 <strong>For:</strong> School, Board &amp; Competitive Exams</div>
+    </div>
+  </div>
+
+  <div class="tagline">"Small Experiments… Big Discoveries…"</div>
+
+  <div class="qr-card">
+    <img src="data:image/png;base64,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" alt="QR Code containing book details"/>
+    <div class="qr-info">
+      <h3>This QR Code</h3>
+      <p>
+        Scan this code to read full book details on any device. Currently the QR encodes
+        the book information as text — no internet connection required to read it.
+      </p>
+      <span class="note">
+        💡 Host this page online and regenerate the QR with your live URL for a richer scan experience.
+      </span>
+    </div>
+  </div>
+
+  <p class="section-label">About SP Publication</p>
+  <p style="font-size:.88rem;color:var(--muted);line-height:1.7;">
+    SP Publication is committed to producing high-quality academic books that help students
+    excel in their examinations. With a focus on clarity, curriculum alignment, and student
+    accessibility, SP Publication's titles are trusted companions across schools and
+    coaching centres.
+  </p>
+
+</main>
+
+<footer>
+  <span class="brand">SP Publication</span>
+  Quality Books for a Brighter Future
+</footer>
+
+</body>
+</html>
